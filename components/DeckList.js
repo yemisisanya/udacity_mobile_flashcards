@@ -16,6 +16,7 @@ class DeckList extends Component {
 componentDidMount() {
   clearAsyncStorage()
 getDecks().then((decks) => this.props.dispatch(gDecks(decks)));
+this.props.navigation.navigate('AddDeck', {decks: this.props.decks })
   }
 
   renderList = ({item}) => {

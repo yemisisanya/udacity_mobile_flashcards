@@ -26,11 +26,19 @@ onSubmit = () => {
     Keyboard.dismiss();
     this.props.dispatch(addDeck(this.state.title))
     saveDeckTitle(this.state.title)
+    const deck = {
+        title: this.state.title,
+        questions:[]
+    }
     this.setState({
         title: ''
     })
-
- return(this.props.navigation.navigate('Home'))
+    
+console.log(deck)
+ return this.props.navigation.navigate(
+    'Deck',
+    { deck: deck, id: deck.title }
+)
 
 }
       render() {
@@ -56,11 +64,11 @@ onSubmit = () => {
           )
       }
 }
-function mapStateToProps (state, {navigation}, decks) {
-    console.log(decks, navigation)
+function mapStateToProps (state, {navigation}) {
+   const {deck} = navigation.state.params
     return {
     navigation,
-    decks,
+   deck,
     }
   }
 
@@ -82,7 +90,7 @@ const styles = StyleSheet.create({
     },
     submitButton: {
         alignSelf: 'center',
-             backgroundColor: 'yellow',
+             backgroundColor: '#A0CED9',
              borderRadius: 10,
              height: 50,
              marginBottom: 100,

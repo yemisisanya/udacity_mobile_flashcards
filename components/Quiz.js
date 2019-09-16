@@ -94,8 +94,8 @@ restart () {
        if(done) {
            return(
                <View>
-                   <Text style={styles.text}>{correct} correct answers</Text>
-                   <Text style={styles.text}>{incorrect} incorrect answers</Text>
+                   <Text style={styles.text}>{correct} correct answer(s)</Text>
+                   <Text style={styles.text}>{incorrect} incorrect answer(s)</Text>
                    <Text style={styles.text}>{((correct/questions.length)*100).toFixed(2)}%</Text>
                    <TouchableOpacity
                   style={styles.submitButton}
@@ -230,7 +230,7 @@ export default connect(
         },
         submitButton: {
             alignSelf: 'center',
-             backgroundColor: 'yellow',
+             backgroundColor: '#A0CED9',
              borderRadius: 10,
              height: 50,
              marginBottom: 100,
